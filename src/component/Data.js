@@ -35,6 +35,15 @@ const sampleData = [
       numPrescriptions: 170,
       numLabResults: 110,
     },
+    {
+      date: '2023-04-05',
+      department: 'Neurology',
+      numPatients: 95,
+      numAdmissions: 10,
+      numVisits: 60,
+      numPrescriptions: 150,
+      numLabResults: 110,
+    }
   ];
   
   export default sampleData;
