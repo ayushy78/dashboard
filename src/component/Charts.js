@@ -1,5 +1,9 @@
 import React from 'react';
 import { Line, Bar, Pie } from 'react-chartjs-2';
+import { Chart, CategoryScale, LinearScale, PointElement, LineElement, ArcElement, BarElement } from 'chart.js';
+
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, ArcElement, BarElement);
+
 
 const Charts = ({ data }) => {
   const patientsData = {
