@@ -1,9 +1,12 @@
-import React, { useState, memo } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import React, { useState, memo } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const DateFilter = ({ onDateChange }) => {
-  const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
+  const [dateRange, setDateRange] = useState({
+    startDate: null,
+    endDate: null,
+  });
 
   const handleDateChange = (dates) => {
     const [start, end] = dates;
@@ -12,8 +15,8 @@ const DateFilter = ({ onDateChange }) => {
   };
 
   return (
-    <div>
-      <h3>Filter by Date Range</h3>
+    <div className="mb-4">
+      <h3 className="mb-3">Filter by Date Range</h3>
       <MemoisedDatePicker
         selected={dateRange.startDate}
         onChange={handleDateChange}
@@ -21,6 +24,7 @@ const DateFilter = ({ onDateChange }) => {
         endDate={dateRange.endDate}
         selectsRange
         inline
+        className="react-datepicker-container"
       />
     </div>
   );

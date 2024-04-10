@@ -14,12 +14,14 @@ const DepartmentFilter = ({ onDepartmentChange }) => {
   };
 
   return (
-    <div>
-      <h3>Filter by Department</h3>
+    <div className="mb-4">
+      <h3 className="mb-3">Filter by Department</h3>
       <Select
         options={departments}
         onChange={handleDepartmentChange}
         placeholder="Select a department"
+        className="react-select-container"
+        classNamePrefix="react-select"
       />
     </div>
   );
