@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   const handleDepartmentChange = (department) => {
     setSelectedDepartment(department);
-    const filtered = sampleData.filter((item) => item.department === department);
+    const filtered = sampleData.filter((item) => item.department === selectedDepartment);
     setFilteredData(filtered);
   };
 
@@ -19,14 +19,14 @@ const Dashboard = () => {
     setDateRange(dates);
     const filtered = sampleData.filter((item) => {
       const itemDate = new Date(item.date);
-      if (!dates.startDate && !dates.endDate) {
+      if (!dateRange.startDate && !dateRange.endDate) {
         return true;
-      } else if (!dates.startDate) {
-        return itemDate <= dates.endDate;
-      } else if (!dates.endDate) {
-        return itemDate >= dates.startDate;
+      } else if (!dateRange.startDate) {
+        return itemDate <= dateRange.endDate;
+      } else if (!dateRange.endDate) {
+        return itemDate >= dateRange.startDate;
       } else {
-        return itemDate >= dates.startDate && itemDate <= dates.endDate;
+        return itemDate >= dateRange.startDate && itemDate <= dateRange.endDate;
       }
     });
     setFilteredData(filtered);
