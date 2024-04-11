@@ -4,7 +4,7 @@ import DateFilter from "./DateFilter";
 import Charts from "./Charts";
 import TotalCounts from "./TotalCounts";
 import sampleData from "./Data";
-import './Dashboard.css'; 
+import "./Dashboard.css";
 const Dashboard = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
@@ -45,9 +45,9 @@ const Dashboard = () => {
         <div className="col-md-4">
           <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
           <DateFilter onDateChange={handleDateChange} dateRange={dateRange} />
+          <TotalCounts data={filteredData} />
         </div>
         <div className="col-md-8">
-          <TotalCounts data={filteredData} />
           <Charts data={filteredData} />
         </div>
       </div>
