@@ -2,9 +2,9 @@ import React, { useState, memo } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateFilter = ({ onDateChange }) => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+const DateFilter = ({ onDateChange, dateRange }) => {
+  const [startDate, setStartDate] = useState(dateRange.startDate || null);
+  const [endDate, setEndDate] = useState(dateRange.endDate || null);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -28,8 +28,11 @@ const DateFilter = ({ onDateChange }) => {
             selectsStart
             startDate={startDate}
             endDate={endDate}
-            maxDate={endDate}
-            placeholderText="Select start date"
+            maxDate={new Date("2023-12-31")}
+            minDate={new Date("2010-01-01")}
+            showYearPicker
+            dateFormat="yyyy"
+            placeholderText="Select start year"
           />
         </div>
         <div>
@@ -40,8 +43,11 @@ const DateFilter = ({ onDateChange }) => {
             selectsEnd
             startDate={startDate}
             endDate={endDate}
-            minDate={startDate}
-            placeholderText="Select end date"
+            maxDate={new Date("2023-12-31")}
+            minDate={new Date("2010-01-01")}
+            showYearPicker
+            dateFormat="yyyy"
+            placeholderText="Select end year"
           />
         </div>
       </div>
