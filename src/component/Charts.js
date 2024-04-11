@@ -1,8 +1,23 @@
 import React from "react";
-import { Line, Bar } from "react-chartjs-2";
-import { Chart, CategoryScale, LinearScale, PointElement, LineElement, BarElement } from "chart.js";
+import { Line, Bar, Pie } from "react-chartjs-2";
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+} from "chart.js";
 
-Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement);
+Chart.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement
+);
 
 const Charts = ({ data }) => {
   const patientsData = {
@@ -43,6 +58,20 @@ const Charts = ({ data }) => {
     ],
   };
 
+  const admissionsData = {
+    labels: ["Inpatient", "Outpatient"],
+    datasets: [
+      {
+        data: [
+          data.reduce((sum, item) => sum + item.numAdmissions, 0),
+          data.reduce((sum, item) => sum + item.numVisits, 0),
+        ],
+        backgroundColor: ["rgba(255,99,132,0.6)", "rgba(54,162,235,0.6)"],
+        borderColor: ["rgba(255,99,132,1)", "rgba(54,162,235,1)"],
+      },
+    ],
+  };
+
   return (
     <div>
       <h2 className="mb-4">Data Charts</h2>
@@ -60,6 +89,14 @@ const Charts = ({ data }) => {
             <div className="card-body">
               <h3 className="card-title">Total Counts</h3>
               <Bar data={totalCountsData} />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 mb-4">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title">Admissions vs Visits</h3>
+              <Pie data={admissionsData} />
             </div>
           </div>
         </div>
