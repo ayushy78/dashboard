@@ -17,46 +17,28 @@ const Charts = ({ data }) => {
     ],
   };
 
-  const admissionsData = {
-    labels: ["Total Admissions"],
+  const totalCountsData = {
+    labels: ["Admissions", "Visits", "Outpatients", "Discharge Summaries"],
     datasets: [
       {
-        data: [data.reduce((sum, item) => sum + item.numAdmissions, 0)],
-        backgroundColor: ["rgba(255,99,132,0.6)"],
-        borderColor: ["rgba(255,99,132,1)"],
-      },
-    ],
-  };
-
-  const visitsData = {
-    labels: ["Total Visits"],
-    datasets: [
-      {
-        data: [data.reduce((sum, item) => sum + item.numVisits, 0)],
-        backgroundColor: ["rgba(54,162,235,0.6)"],
-        borderColor: ["rgba(54,162,235,1)"],
-      },
-    ],
-  };
-
-  const outpatientsData = {
-    labels: ["Total Outpatients"],
-    datasets: [
-      {
-        data: [data.reduce((sum, item) => sum + item.numOutpatients, 0)],
-        backgroundColor: ["rgba(153,102,255,0.6)"],
-        borderColor: ["rgba(153,102,255,1)"],
-      },
-    ],
-  };
-
-  const dischargeSummariesData = {
-    labels: ["Total Discharge Summaries"],
-    datasets: [
-      {
-        data: [data.reduce((sum, item) => sum + item.numDischargeSummaries, 0)],
-        backgroundColor: ["rgba(255,206,86,0.6)"],
-        borderColor: ["rgba(255,206,86,1)"],
+        data: [
+          data.reduce((sum, item) => sum + item.numAdmissions, 0),
+          data.reduce((sum, item) => sum + item.numVisits, 0),
+          data.reduce((sum, item) => sum + item.numOutpatients, 0),
+          data.reduce((sum, item) => sum + item.numDischargeSummaries, 0),
+        ],
+        backgroundColor: [
+          "rgba(255,99,132,0.6)",
+          "rgba(54,162,235,0.6)",
+          "rgba(153,102,255,0.6)",
+          "rgba(255,206,86,0.6)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54,162,235,1)",
+          "rgba(153,102,255,1)",
+          "rgba(255,206,86,1)",
+        ],
       },
     ],
   };
@@ -76,32 +58,8 @@ const Charts = ({ data }) => {
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
-              <h3 className="card-title">Total Admissions</h3>
-              <Bar data={admissionsData} />
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6 mb-4">
-          <div className="card">
-            <div className="card-body">
-              <h3 className="card-title">Total Visits</h3>
-              <Bar data={visitsData} />
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6 mb-4">
-          <div className="card">
-            <div className="card-body">
-              <h3 className="card-title">Total Outpatients</h3>
-              <Bar data={outpatientsData} />
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6 mb-4">
-          <div className="card">
-            <div className="card-body">
-              <h3 className="card-title">Total Discharge Summaries</h3>
-              <Bar data={dischargeSummariesData} />
+              <h3 className="card-title">Total Counts</h3>
+              <Bar data={totalCountsData} />
             </div>
           </div>
         </div>
