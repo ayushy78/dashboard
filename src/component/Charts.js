@@ -72,6 +72,30 @@ const Charts = ({ data }) => {
     ],
   };
 
+  const prescriptionsData = {
+    labels: data.map((item) => item.date),
+    datasets: [
+      {
+        label: "Number of Prescriptions",
+        data: data.map((item) => item.numPrescriptions),
+        backgroundColor: "rgba(255,206,86,0.4)",
+        borderColor: "rgba(255,206,86,1)",
+      },
+    ],
+  };
+
+  const labResultsData = {
+    labels: data.map((item) => item.date),
+    datasets: [
+      {
+        label: "Number of Lab Results",
+        data: data.map((item) => item.numLabResults),
+        backgroundColor: "rgba(153,102,255,0.4)",
+        borderColor: "rgba(153,102,255,1)",
+      },
+    ],
+  };
+
   return (
     <div>
       <h2 className="mb-4">Data Charts</h2>
@@ -97,6 +121,22 @@ const Charts = ({ data }) => {
             <div className="card-body">
               <h3 className="card-title">Admissions vs Visits</h3>
               <Pie data={admissionsData} />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 mb-4">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title">Number of Prescriptions</h3>
+              <Line data={prescriptionsData} />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 mb-4">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title">Number of Lab Results</h3>
+              <Line data={labResultsData} />
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ const sampleData = [
     numVisits: 80,
     numOutpatients: 60,
     numDischargeSummaries: 12,
+    numPrescriptions: 250,
+    numLabResults: 180,
   },
   {
     date: "2022-04-02",
@@ -16,6 +18,8 @@ const sampleData = [
     numVisits: 65,
     numOutpatients: 50,
     numDischargeSummaries: 8,
+    numPrescriptions: 180,
+    numLabResults: 120,
   },
   {
     date: "2021-04-03",
@@ -25,6 +29,8 @@ const sampleData = [
     numVisits: 70,
     numOutpatients: 55,
     numDischargeSummaries: 15,
+    numPrescriptions: 220,
+    numLabResults: 150,
   },
   {
     date: "2020-04-04",
@@ -34,6 +40,8 @@ const sampleData = [
     numVisits: 60,
     numOutpatients: 45,
     numDischargeSummaries: 6,
+    numPrescriptions: 170,
+    numLabResults: 110,
   },
   {
     date: "2019-04-05",
@@ -43,6 +51,8 @@ const sampleData = [
     numVisits: 60,
     numOutpatients: 55,
     numDischargeSummaries: 9,
+    numPrescriptions: 150,
+    numLabResults: 110,
   },
   {
     date: "2018-04-06",
@@ -52,6 +62,8 @@ const sampleData = [
     numVisits: 75,
     numOutpatients: 65,
     numDischargeSummaries: 10,
+    numPrescriptions: 180,
+    numLabResults: 120,
   },
   {
     date: "2017-04-07",
@@ -61,6 +73,8 @@ const sampleData = [
     numVisits: 60,
     numOutpatients: 45,
     numDischargeSummaries: 12,
+    numPrescriptions: 250,
+    numLabResults: 180,
   },
   {
     date: "2016-04-08",
@@ -70,6 +84,8 @@ const sampleData = [
     numVisits: 55,
     numOutpatients: 40,
     numDischargeSummaries: 5,
+    numPrescriptions: 180,
+    numLabResults: 120,
   },
   {
     date: "2015-04-09",
@@ -79,6 +95,8 @@ const sampleData = [
     numVisits: 70,
     numOutpatients: 60,
     numDischargeSummaries: 10,
+    numPrescriptions: 170,
+    numLabResults: 110,
   },
   {
     date: "2014-04-10",
@@ -88,6 +106,8 @@ const sampleData = [
     numVisits: 85,
     numOutpatients: 65,
     numDischargeSummaries: 15,
+    numPrescriptions: 180,
+    numLabResults: 120,
   },
 ];
 
