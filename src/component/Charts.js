@@ -1,23 +1,8 @@
 import React from "react";
-import { Line, Pie } from "react-chartjs-2";
-import {
-  Chart,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  BarElement,
-} from "chart.js";
+import { Line, Bar } from "react-chartjs-2";
+import { Chart, CategoryScale, LinearScale, PointElement, LineElement, BarElement } from "chart.js";
 
-Chart.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  ArcElement,
-  BarElement
-);
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement);
 
 const Charts = ({ data }) => {
   const patientsData = {
@@ -33,7 +18,7 @@ const Charts = ({ data }) => {
   };
 
   const admissionsData = {
-    labels: ["Admissions"],
+    labels: ["Total Admissions"],
     datasets: [
       {
         data: [data.reduce((sum, item) => sum + item.numAdmissions, 0)],
@@ -44,7 +29,7 @@ const Charts = ({ data }) => {
   };
 
   const visitsData = {
-    labels: ["Visits"],
+    labels: ["Total Visits"],
     datasets: [
       {
         data: [data.reduce((sum, item) => sum + item.numVisits, 0)],
@@ -55,7 +40,7 @@ const Charts = ({ data }) => {
   };
 
   const outpatientsData = {
-    labels: ["Outpatients"],
+    labels: ["Total Outpatients"],
     datasets: [
       {
         data: [data.reduce((sum, item) => sum + item.numOutpatients, 0)],
@@ -66,7 +51,7 @@ const Charts = ({ data }) => {
   };
 
   const dischargeSummariesData = {
-    labels: ["Discharge Summaries"],
+    labels: ["Total Discharge Summaries"],
     datasets: [
       {
         data: [data.reduce((sum, item) => sum + item.numDischargeSummaries, 0)],
@@ -91,32 +76,32 @@ const Charts = ({ data }) => {
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
-              <h3 className="card-title">Admissions</h3>
-              <Pie data={admissionsData} />
+              <h3 className="card-title">Total Admissions</h3>
+              <Bar data={admissionsData} />
             </div>
           </div>
         </div>
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
-              <h3 className="card-title">Visits</h3>
-              <Pie data={visitsData} />
+              <h3 className="card-title">Total Visits</h3>
+              <Bar data={visitsData} />
             </div>
           </div>
         </div>
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
-              <h3 className="card-title">Outpatients</h3>
-              <Pie data={outpatientsData} />
+              <h3 className="card-title">Total Outpatients</h3>
+              <Bar data={outpatientsData} />
             </div>
           </div>
         </div>
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
-              <h3 className="card-title">Discharge Summaries</h3>
-              <Pie data={dischargeSummariesData} />
+              <h3 className="card-title">Total Discharge Summaries</h3>
+              <Bar data={dischargeSummariesData} />
             </div>
           </div>
         </div>
