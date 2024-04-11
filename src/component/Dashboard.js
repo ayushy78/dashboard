@@ -65,32 +65,33 @@ const Dashboard = () => {
   return (
     <div>
       <div className="header">
-        <div className="row align-items-center">
-          <div className="coll">
-            <img src={logo} className="logo" alt="logo" />
-          </div>
-          <div className="coll">
-            <h2 className="display-4 my-5 text-center mb-5">
-              Sanjay Gandhi Post Graduate Institute of Medical Sciences
-            </h2>
+        <div className="logo-container">
+          <img src={logo} className="logo" alt="logo" />
+          <div className="app-name">
+            <h1>Sanjay Gandhi Post Graduate Institute of Medical Sciences</h1>
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <h1 className="display-4 my-5 text-center mb-5">
-            Retrospective Dashboard
-          </h1>
-        </div>
-
-        <div className="row">
-          <div className="col-md-4">
-            <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
-            <DateFilter onDateChange={handleDateChange} dateRange={dateRange} />
-            <button onClick={clearFilters}>Clear Filters</button>
+      <div className="dashboard-container row align-items-center">
+        <div className="container">
+          <div className="row">
+            <h1 className="display-4 my-5 text-center mb-5">
+              Retrospective Dashboard
+            </h1>
           </div>
-          <div className="col-md-8">
-            <Charts data={filteredData} />
+
+          <div className="row">
+            <div className="col-md-4">
+              <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
+              <DateFilter
+                onDateChange={handleDateChange}
+                dateRange={dateRange}
+              />
+              <button onClick={clearFilters}>Clear Filters</button>
+            </div>
+            <div className="col-md-8">
+              <Charts data={filteredData} />
+            </div>
           </div>
         </div>
       </div>

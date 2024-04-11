@@ -1,10 +1,31 @@
 /* Header */
 .header {
-  background-color: #333;
+  background-color: #6a6868;
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20px;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 20px;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
   color: #fff;
   padding: 20px;
 }
-
 
 .coll:first-child {
   margin-right: 20px; /* Add some spacing between logo and heading */
@@ -49,4 +70,3 @@
   width: 80%;
   margin-bottom: 20px;
 }
-
