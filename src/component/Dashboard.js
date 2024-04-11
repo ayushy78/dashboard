@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import DepartmentFilter from "./DepartmentFilter";
 import DateFilter from "./DateFilter";
 import Charts from "./Charts";
+import logo from "../logo.png";
 import sampleData from "./Data";
-import logo from "../logo.png"; // Import the logo
-
+import "./Dashboard.css";
 const Dashboard = () => {
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [dateRange, setDateRange] = useState({
+    startDate: null,
+    endDate: null,
+  });
   const [filteredData, setFilteredData] = useState(sampleData);
 
   const handleDepartmentChange = (department) => {
+    setSelectedDepartment(department);
     const filtered = sampleData.filter(
-      (item) => item.department === department
+      (item) => item.department === selectedDepartment
     );
     setFilteredData(filtered);
   };
 
   const handleDateChange = (dates) => {
+    setDateRange(dates);
     const filtered = sampleData.filter((item) => {
       const itemDate = new Date(item.date);
       if (!dates.startDate && !dates.endDate) {
@@ -33,16 +40,18 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      <img src={logo} alt="Logo" />
+      <img src={logo} className="App-logo" alt="logo" />
+      <h1 className="my-5 text-center">Hospital Dashboard</h1>
       <div className="row">
-        <div className="col">
+        <div className="col-md-4">
           <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
+          <DateFilter onDateChange={handleDateChange} dateRange={dateRange} />
+          
         </div>
-        <div className="col">
-          <DateFilter onDateChange={handleDateChange} />
+        <div className="col-md-8">
+          <Charts data={filteredData} />
         </div>
       </div>
-      <Charts data={filteredData} />
     </div>
   );
 };

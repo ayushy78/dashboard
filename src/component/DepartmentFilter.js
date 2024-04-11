@@ -18,7 +18,7 @@ const DepartmentFilter = ({ onDepartmentChange }) => {
 
   return (
     <div className="mb-4">
-      <h3 className="mb-3">Filter by Department</h3>
+      <h3 className="mb-3">Department</h3>
       <Select
         options={departments}
         onChange={handleDepartmentChange}
