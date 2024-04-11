@@ -18,10 +18,13 @@ const TotalCounts = ({ data }) => {
 
   return (
     <div className="row">
+      <div className="col-md-12">
+        <h4 className="card-title">Total Counts</h4>
+      </div>
       <div className="col-md-6">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Total Patients</h5>
+            <h5 className="card-title">Patients</h5>
             <p className="card-text">{totalPatients}</p>
           </div>
         </div>
@@ -29,7 +32,7 @@ const TotalCounts = ({ data }) => {
       <div className="col-md-6">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Total Admissions</h5>
+            <h5 className="card-title">Admissions</h5>
             <p className="card-text">{totalAdmissions}</p>
           </div>
         </div>
@@ -37,7 +40,7 @@ const TotalCounts = ({ data }) => {
       <div className="col-md-6">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Total Visits</h5>
+            <h5 className="card-title">Visits</h5>
             <p className="card-text">{totalVisits}</p>
           </div>
         </div>
@@ -45,7 +48,7 @@ const TotalCounts = ({ data }) => {
       <div className="col-md-6">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Total Outpatients</h5>
+            <h5 className="card-title">Outpatients</h5>
             <p className="card-text">{totalOutPatients}</p>
           </div>
         </div>
@@ -53,7 +56,7 @@ const TotalCounts = ({ data }) => {
       <div className="col-md-12">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Total Discharge Summaries</h5>
+            <h5 className="card-title">Discharge Summaries</h5>
             <p className="card-text">{totalDischargeSummaries}</p>
           </div>
         </div>
