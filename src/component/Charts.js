@@ -1,5 +1,6 @@
 import React from "react";
 import { Line, Bar, Pie } from "react-chartjs-2";
+import TotalCounts from "./TotalCounts";
 import {
   Chart,
   CategoryScale,
@@ -100,6 +101,9 @@ const Charts = ({ data }) => {
     <div>
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
+        <div className="col-md-6 mb-4">
+          <TotalCounts data={data}/>
+          </div>
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">

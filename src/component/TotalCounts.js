@@ -6,11 +6,13 @@ const TotalCounts = ({ data }) => {
     (sum, item) => sum + item.numAdmissions,
     0
   );
+  const totalOutPatients = data.reduce((sum, item) => sum + item.numOutpatients, 0);
   const totalVisits = data.reduce((sum, item) => sum + item.numVisits, 0);
+  const totalDischargeSummaries = data.reduce((sum, item) => sum + item.numDischargeSummaries, 0);
 
   return (
     <div className="row">
-      <div className="col-md-3">
+      <div className="col-md-6">
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Total Patients</h5>
@@ -18,7 +20,7 @@ const TotalCounts = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="col-md-3">
+      <div className="col-md-6">
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Total Admissions</h5>
@@ -26,11 +28,27 @@ const TotalCounts = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="col-md-3">
+      <div className="col-md-6">
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Total Visits</h5>
             <p className="card-text">{totalVisits}</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-6">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">Total Outpatients</h5>
+            <p className="card-text">{totalOutPatients}</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-12">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">Total Discharge Summaries</h5>
+            <p className="card-text">{totalDischargeSummaries}</p>
           </div>
         </div>
       </div>
