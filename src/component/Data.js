@@ -1,6 +1,6 @@
 const sampleData = [
   {
-    date: "2022-04-01",
+    date: "2023-04-01",
     department: "Cardiology",
     numPatients: 120,
     numAdmissions: 15,
@@ -22,6 +22,17 @@ const sampleData = [
     numLabResults: 120,
   },
   {
+    date: "2022-04-05",
+    department: "Neurology",
+    numPatients: 95,
+    numAdmissions: 10,
+    numVisits: 60,
+    numOutpatients: 55,
+    numDischargeSummaries: 9,
+    numPrescriptions: 150,
+    numLabResults: 110,
+  },
+  {
     date: "2021-04-03",
     department: "Orthopedics",
     numPatients: 105,
@@ -33,7 +44,7 @@ const sampleData = [
     numLabResults: 150,
   },
   {
-    date: "2020-04-04",
+    date: "2020-05-04",
     department: "Pediatrics",
     numPatients: 85,
     numAdmissions: 8,
