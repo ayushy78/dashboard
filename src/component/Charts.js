@@ -6,8 +6,8 @@ import {
   LinearScale,
   PointElement,
   LineElement,
-  ArcElement,
   BarElement,
+  ArcElement,
 } from "chart.js";
 
 Chart.register(
@@ -15,8 +15,8 @@ Chart.register(
   LinearScale,
   PointElement,
   LineElement,
-  ArcElement,
-  BarElement
+  BarElement,
+  ArcElement
 );
 
 const Charts = ({ data }) => {
@@ -28,6 +28,32 @@ const Charts = ({ data }) => {
         data: data.map((item) => item.numPatients),
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "rgba(75,192,192,1)",
+      },
+    ],
+  };
+
+  const totalCountsData = {
+    labels: ["Admissions", "Visits", "Outpatients", "Discharge Summaries"],
+    datasets: [
+      {
+        data: [
+          data.reduce((sum, item) => sum + item.numAdmissions, 0),
+          data.reduce((sum, item) => sum + item.numVisits, 0),
+          data.reduce((sum, item) => sum + item.numOutpatients, 0),
+          data.reduce((sum, item) => sum + item.numDischargeSummaries, 0),
+        ],
+        backgroundColor: [
+          "rgba(255,99,132,0.6)",
+          "rgba(54,162,235,0.6)",
+          "rgba(153,102,255,0.6)",
+          "rgba(255,206,86,0.6)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54,162,235,1)",
+          "rgba(153,102,255,1)",
+          "rgba(255,206,86,1)",
+        ],
       },
     ],
   };
@@ -85,6 +111,14 @@ const Charts = ({ data }) => {
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
+              <h3 className="card-title">Total Counts</h3>
+              <Bar data={totalCountsData} />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 mb-4">
+          <div className="card">
+            <div className="card-body">
               <h3 className="card-title">Admissions vs Visits</h3>
               <Pie data={admissionsData} />
             </div>
@@ -94,7 +128,7 @@ const Charts = ({ data }) => {
           <div className="card">
             <div className="card-body">
               <h3 className="card-title">Number of Prescriptions</h3>
-              <Bar data={prescriptionsData} />
+              <Line data={prescriptionsData} />
             </div>
           </div>
         </div>

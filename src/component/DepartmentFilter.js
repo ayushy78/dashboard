@@ -1,16 +1,19 @@
-import React from 'react';
-import Select from 'react-select';
+import React from "react";
+import Select from "react-select";
 
 const DepartmentFilter = ({ onDepartmentChange }) => {
   const departments = [
-    { value: 'Cardiology', label: 'Cardiology' },
-    { value: 'Neurology', label: 'Neurology' },
-    { value: 'Orthopedics', label: 'Orthopedics' },
-    { value: 'Pediatrics', label: 'Pediatrics' },
+    { value: "all", label: "All Departments" },
+    { value: "Cardiology", label: "Cardiology" },
+    { value: "Neurology", label: "Neurology" },
+    { value: "Orthopedics", label: "Orthopedics" },
+    { value: "Pediatrics", label: "Pediatrics" },
   ];
 
   const handleDepartmentChange = (selectedOption) => {
-    onDepartmentChange(selectedOption.value);
+    onDepartmentChange(
+      selectedOption.value === "all" ? "" : selectedOption.value
+    );
   };
 
   return (
