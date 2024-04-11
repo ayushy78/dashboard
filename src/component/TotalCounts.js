@@ -6,9 +6,15 @@ const TotalCounts = ({ data }) => {
     (sum, item) => sum + item.numAdmissions,
     0
   );
-  const totalOutPatients = data.reduce((sum, item) => sum + item.numOutpatients, 0);
+  const totalOutPatients = data.reduce(
+    (sum, item) => sum + item.numOutpatients,
+    0
+  );
   const totalVisits = data.reduce((sum, item) => sum + item.numVisits, 0);
-  const totalDischargeSummaries = data.reduce((sum, item) => sum + item.numDischargeSummaries, 0);
+  const totalDischargeSummaries = data.reduce(
+    (sum, item) => sum + item.numDischargeSummaries,
+    0
+  );
 
   return (
     <div className="row">

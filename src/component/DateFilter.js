@@ -1,10 +1,29 @@
-import React, { useState, memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import DatePicker from "react-datepicker";
+import Select from "react-select";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DateFilter = ({ onDateChange, dateRange }) => {
   const [startDate, setStartDate] = useState(dateRange.startDate || null);
   const [endDate, setEndDate] = useState(dateRange.endDate || null);
+  const [year, setYear] = useState(null);
+  const [month, setMonth] = useState(null);
+
+  useEffect(() => {
+    setStartDate(dateRange.startDate);
+    setEndDate(dateRange.endDate);
+    setYear(dateRange.year);
+    setMonth(dateRange.month);
+  }, [dateRange]);
+
+  const years = Array.from({ length: 14 }, (_, i) => 2010 + i).map((year) => ({
+    value: year,
+    label: year.toString(),
+  }));
+  const months = Array.from({ length: 12 }, (_, i) => i + 1).map((month) => ({
+    value: month,
+    label: month.toString(),
+  }));
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -16,13 +35,24 @@ const DateFilter = ({ onDateChange, dateRange }) => {
     onDateChange({ startDate, endDate: date });
   };
 
+  const handleYearChange = (selectedOption) => {
+    setYear(selectedOption.value);
+    onDateChange({ year: selectedOption.value });
+  };
+
+  const handleMonthChange = (selectedOption) => {
+    setMonth(selectedOption.value);
+    onDateChange({ month: selectedOption.value });
+  };
+
   return (
     <div className="mb-4">
       <h3 className="mb-3">Filter by Date Range</h3>
-      <div className="d-flex">
+      <div className="row d-flex">
         <div className="mr-3">
           <label>Start Date:</label>
           <MemoisedDatePicker
+            value={startDate || ""}
             selected={startDate}
             onChange={handleStartDateChange}
             selectsStart
@@ -31,13 +61,14 @@ const DateFilter = ({ onDateChange, dateRange }) => {
             maxDate={new Date("2023-12-31")}
             minDate={new Date("2010-01-01")}
             showYearPicker
-            dateFormat="yyyy"
+            dateFormat="yyyy-mm-dd"
             placeholderText="Select start year"
           />
         </div>
-        <div>
+        <div className="mr-3">
           <label>End Date:</label>
           <MemoisedDatePicker
+            value={endDate || ""}
             selected={endDate}
             onChange={handleEndDateChange}
             selectsEnd
@@ -46,9 +77,33 @@ const DateFilter = ({ onDateChange, dateRange }) => {
             maxDate={new Date("2023-12-31")}
             minDate={new Date("2010-01-01")}
             showYearPicker
-            dateFormat="yyyy"
+            dateFormat="yyyy-mm-dd"
             placeholderText="Select end year"
           />
+        </div>
+        <div className="row d-flex>">
+          <div className="mr-3">
+            <label>Year:</label>
+            <Select
+              options={years}
+              year={year}
+              onChange={handleYearChange}
+              placeholder="Select a year"
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+          </div>
+          <div>
+            <label>Month:</label>
+            <Select
+              options={months}
+              month={month}
+              onChange={handleMonthChange}
+              placeholder="Select a month"
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+          </div>
         </div>
       </div>
     </div>
