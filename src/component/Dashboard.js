@@ -3,7 +3,7 @@ import DepartmentFilter from "./DepartmentFilter";
 import DateFilter from "./DateFilter";
 import Charts from "./Charts";
 import sampleData from "./Data";
-
+import './Dashboard.css'; 
 const Dashboard = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
