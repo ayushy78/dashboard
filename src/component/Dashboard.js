@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="logo" alt="logo" />
       <h1 className="my-5 text-center">Hospital Dashboard</h1>
       <div className="row">
         <div className="col-md-4">
