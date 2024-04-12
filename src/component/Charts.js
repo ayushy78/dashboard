@@ -10,7 +10,6 @@ import {
   LineElement,
   BarElement,
   ArcElement,
-  scales,
 } from "chart.js";
 
 Chart.register(

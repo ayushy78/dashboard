@@ -29,9 +29,13 @@ const Dashboard = () => {
 
   const handleDepartmentChange = (department) => {
     setSelectedDepartment(department);
-    const filtered = sampleData.filter(
-      (item) => item.department === selectedDepartment
-    );
+    let filtered = sampleData;
+    if (selectedDepartment === "") {
+      filtered = sampleData.filter(
+        (item) => item.department === selectedDepartment
+      );
+    }
+    console.log(filtered);
     setFilteredData(filtered);
   };
 
@@ -60,37 +64,45 @@ const Dashboard = () => {
         (item) => new Date(item.date).getMonth() + 1 === dates.month
       );
     }
+    console.log(filtered);
     setFilteredData(filtered);
   };
 
   return (
     <div>
-      <div className="header">
-        <div className="logo-container">
-          <img src={logo} className="logo" alt="logo" />
+      <div className="header bg-primary text-white p-3">
+        <div className="logo-container d-flex align-items-center">
+          <img src={logo} className="logo mr-3" alt="logo" />
           <div className="app-name">
             <h1>Sanjay Gandhi Post Graduate Institute of Medical Sciences</h1>
           </div>
         </div>
       </div>
-      <div className="dashboard-container row align-items-center">
+      <div className="dashboard-container mt-4">
         <div className="container">
           <div className="row">
-            <h1 className="display-4 my-5 text-center mb-5">
+            <h1 className="display-4 my-5 text-center w-100">
               Retrospective Dashboard
             </h1>
           </div>
 
           <div className="row">
             <div className="col-md-4">
-              <div className="card">
+              <div className="card mb-4">
                 <div className="card-body">
-                  <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
+                  <DepartmentFilter
+                    onDepartmentChange={handleDepartmentChange}
+                  />
                   <DateFilter
                     onDateChange={handleDateChange}
                     dateRange={dateRange}
                   />
-                  <button className="btn btn-primary" onClick={clearFilters}>Clear Filters</button>
+                  <button
+                    className="btn btn-primary btn-lg mt-3 rounded-pill"
+                    onClick={clearFilters}
+                  >
+                    Clear Filters
+                  </button>
                 </div>
               </div>
             </div>
