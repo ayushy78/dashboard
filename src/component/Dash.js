@@ -18,7 +18,7 @@ const Dash = () => {
   
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/')
+    axios.get('http://127.0.0.1:5000/posts')
     .then((res) => {
       setFilteredData(res.data);
     })
