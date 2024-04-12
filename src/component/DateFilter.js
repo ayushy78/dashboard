@@ -85,6 +85,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
           <div className="mr-3">
             <label>Year:</label>
             <Select
+              value={year}
               options={years}
               year={year}
               onChange={handleYearChange}
@@ -96,6 +97,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
           <div>
             <label>Month:</label>
             <Select
+              value={month}
               options={months}
               month={month}
               onChange={handleMonthChange}
