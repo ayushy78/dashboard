@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DepartmentFilter from "./DepartmentFilter";
 import DateFilter from "./DateFilter";
 import Charts from "./Charts";
 import logo from "../logo.png";
 import sampleData from "./Data";
-import axios from 'axios';
+import axios from "axios";
 
 import "./Dashboard.css";
 const Dash = () => {
@@ -15,16 +15,17 @@ const Dash = () => {
     year: null,
     month: null,
   });
-  
+
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/posts')
-    .then((res) => {
-      setFilteredData(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    axios
+      .get("http://127.0.0.1:5000/posts")
+      .then((res) => {
+        setFilteredData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const clearFilters = () => {
@@ -91,7 +92,6 @@ const Dash = () => {
               Retrospective Dashboard
             </h1>
           </div>
-
           <div className="row">
             <div className="col-md-4">
               <DepartmentFilter onDepartmentChange={handleDepartmentChange} />

@@ -13,7 +13,7 @@ const Dashboard = () => {
     year: null,
     month: null,
   });
-  
+
   const [filteredData, setFilteredData] = useState(sampleData);
 
   const clearFilters = () => {
