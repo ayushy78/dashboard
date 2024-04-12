@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import DepartmentFilter from "./DepartmentFilter";
 import DateFilter from "./DateFilter";
 import Charts from "./Charts";
 import logo from "../logo.png";
 import sampleData from "./Data";
+import axios from 'axios';
+
 import "./Dashboard.css";
-const Dashboard = () => {
+const Dash = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
     startDate: null,
@@ -14,7 +16,16 @@ const Dashboard = () => {
     month: null,
   });
   
-  const [filteredData, setFilteredData] = useState(sampleData);
+  const [filteredData, setFilteredData] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:3001/')
+    .then((res) => {
+      setFilteredData(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, []);
 
   const clearFilters = () => {
     setSelectedDepartment("");
@@ -24,7 +35,7 @@ const Dashboard = () => {
       year: null,
       month: null,
     });
-    setFilteredData(sampleData);
+    setFilteredData(filteredData);
   };
 
   const handleDepartmentChange = (department) => {
@@ -100,4 +111,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dash;
