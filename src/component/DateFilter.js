@@ -57,9 +57,9 @@ const DateFilter = ({ onDateChange, dateRange }) => {
     <div className="card mb-4">
       <div className="card-body">
         <h3 className="mb-3">Filter by Date Range</h3>
-        <div className="row d-flex">
-          <div className="mr-3">
-            <label>Start Date:</label>
+        <div className="row">
+          <div className="col-md-6">
+            <label className="mb-2">Start Date</label>
             <MemoisedDatePicker
               value={startDate || ""}
               selected={startDate}
@@ -75,8 +75,8 @@ const DateFilter = ({ onDateChange, dateRange }) => {
               className="form-control"
             />
           </div>
-          <div className="mr-3">
-            <label>End Date: </label>
+          <div className="col-md-6">
+            <label className="mb-2">End Date</label>
             <MemoisedDatePicker
               value={endDate || ""}
               selected={endDate}
@@ -92,31 +92,31 @@ const DateFilter = ({ onDateChange, dateRange }) => {
               className="form-control"
             />
           </div>
-          <div className="row d-flex">
-            <div className="mr-3">
-              <label>Year:</label>
-              <Select
-                value={selectedYear || ""}
-                options={years}
-                year={year}
-                onChange={handleYearChange}
-                placeholder="Select a year"
-                className="react-select-container"
-                classNamePrefix="react-select"
-              />
-            </div>
-            <div>
-              <label>Month:</label>
-              <Select
-                value={selectedMonth || ""}
-                options={months}
-                month={month}
-                onChange={handleMonthChange}
-                placeholder="Select a month"
-                className="react-select-container"
-                classNamePrefix="react-select"
-              />
-            </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-6">
+            <label className="mb-2">Year</label>
+            <Select
+              value={selectedYear || ""}
+              options={years}
+              year={year}
+              onChange={handleYearChange}
+              placeholder="Select a year"
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+          </div>
+          <div className="col-md-6">
+            <label className="mb-2">Month</label>
+            <Select
+              value={selectedMonth || ""}
+              options={months}
+              month={month}
+              onChange={handleMonthChange}
+              placeholder="Select a month"
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
           </div>
         </div>
       </div>
