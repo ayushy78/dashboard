@@ -76,7 +76,7 @@ const Charts = ({ data }) => {
     ],
   };
 
-  const barChartOptions = {
+  const ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -129,7 +129,11 @@ const Charts = ({ data }) => {
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
         <div className="col-md-6 mb-4">
-          <TotalCounts data={data} />
+          <div className="card h-100">
+            <div className="card-body">
+              <TotalCounts data={data} />
+            </div>
+          </div>
         </div>
         <div className="col-md-6 mb-4">
           <div className="card h-100">
@@ -149,7 +153,7 @@ const Charts = ({ data }) => {
               <div className="chart-container">
                 <Bar
                   data={totalCountsData}
-                  options={barChartOptions}
+                  options={ChartOptions}
                   ref={(ref) => (chartRefs.current[1] = ref)}
                 />
               </div>

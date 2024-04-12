@@ -1,6 +1,10 @@
 import React from "react";
 
 const TotalCounts = ({ data }) => {
+  const styles = {
+    backgroundColor: "#f8f9fa",
+  };
+
   const totalPatients = data.reduce((sum, item) => sum + item.numPatients, 0);
   const totalAdmissions = data.reduce(
     (sum, item) => sum + item.numAdmissions,
@@ -22,7 +26,7 @@ const TotalCounts = ({ data }) => {
         <h4 className="card-title">Total Counts</h4>
       </div>
       <div className="col-md-6">
-        <div className="card">
+        <div className="card mb-3" style={styles}>
           <div className="card-body">
             <h5 className="card-title">Patients</h5>
             <p className="card-text">{totalPatients}</p>
@@ -30,7 +34,7 @@ const TotalCounts = ({ data }) => {
         </div>
       </div>
       <div className="col-md-6">
-        <div className="card">
+        <div className="card mb-3" style={styles}>
           <div className="card-body">
             <h5 className="card-title">Admissions</h5>
             <p className="card-text">{totalAdmissions}</p>
@@ -38,7 +42,7 @@ const TotalCounts = ({ data }) => {
         </div>
       </div>
       <div className="col-md-6">
-        <div className="card">
+        <div className="card mb-3" style={styles}>
           <div className="card-body">
             <h5 className="card-title">Visits</h5>
             <p className="card-text">{totalVisits}</p>
@@ -46,7 +50,7 @@ const TotalCounts = ({ data }) => {
         </div>
       </div>
       <div className="col-md-6">
-        <div className="card">
+        <div className="card mb-3" style={styles}>
           <div className="card-body">
             <h5 className="card-title">Outpatients</h5>
             <p className="card-text">{totalOutPatients}</p>
@@ -54,7 +58,7 @@ const TotalCounts = ({ data }) => {
         </div>
       </div>
       <div className="col-md-12">
-        <div className="card">
+        <div className="card mb-6" style={styles}>
           <div className="card-body">
             <h5 className="card-title">Discharge Summaries</h5>
             <p className="card-text">{totalDischargeSummaries}</p>
