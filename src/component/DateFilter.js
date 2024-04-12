@@ -20,29 +20,37 @@ const DateFilter = ({ onDateChange, dateRange }) => {
     value: year,
     label: year.toString(),
   }));
-  const months = Array.from({ length: 12 }, (_, i) => i + 1).map((month) => ({
-    value: month,
-    label: month.toString(),
-  }));
+
+  const selectedYear = years.find((option) => option.value === year);
+
+  const months = Array.from({ length: 12 }, (_, i) => {
+    const month = new Date(0, i).toLocaleString("default", { month: "short" });
+    return {
+      value: i + 1,
+      label: month,
+    };
+  });
+
+  const selectedMonth = months.find((option) => option.value === month);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
-    onDateChange({ startDate: date, endDate });
+    onDateChange({ startDate: date, endDate, year, month });
   };
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
-    onDateChange({ startDate, endDate: date });
+    onDateChange({ startDate, endDate: date, year, month });
   };
 
-  const handleYearChange = (selectedOption) => {
-    setYear(selectedOption.value);
-    onDateChange({ year: selectedOption.value });
+  const handleYearChange = (select) => {
+    setYear(select.value);
+    onDateChange({ startDate, endDate, year: select.value, month });
   };
 
-  const handleMonthChange = (selectedOption) => {
-    setMonth(selectedOption.value);
-    onDateChange({ month: selectedOption.value });
+  const handleMonthChange = (select) => {
+    setMonth(select.value);
+    onDateChange({ startDate, endDate, year, month: select.value });
   };
 
   return (
@@ -85,7 +93,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
           <div className="mr-3">
             <label>Year:</label>
             <Select
-              value={year}
+              value={selectedYear || ""}
               options={years}
               year={year}
               onChange={handleYearChange}
@@ -97,7 +105,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
           <div>
             <label>Month:</label>
             <Select
-              value={month}
+              value={selectedMonth || ""}
               options={months}
               month={month}
               onChange={handleMonthChange}
