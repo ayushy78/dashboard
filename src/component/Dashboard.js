@@ -68,6 +68,8 @@ const Dashboard = () => {
     setFilteredData(filtered);
   };
 
+  console.log(filteredData);
+
   return (
     <div>
       <div className="header bg-primary text-white p-3">
