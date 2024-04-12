@@ -54,65 +54,69 @@ const DateFilter = ({ onDateChange, dateRange }) => {
   };
 
   return (
-    <div className="mb-4">
-      <h3 className="mb-3">Filter by Date Range</h3>
-      <div className="row d-flex">
-        <div className="mr-3">
-          <label>Start Date:</label>
-          <MemoisedDatePicker
-            value={startDate || ""}
-            selected={startDate}
-            onChange={handleStartDateChange}
-            selectsStart
-            startDate={startDate}
-            endDate={endDate}
-            maxDate={new Date("2023-12-31")}
-            minDate={new Date("2010-01-01")}
-            showYearPicker
-            dateFormat="yyyy-mm-dd"
-            placeholderText="Select start year"
-          />
-        </div>
-        <div className="mr-3">
-          <label>End Date:</label>
-          <MemoisedDatePicker
-            value={endDate || ""}
-            selected={endDate}
-            onChange={handleEndDateChange}
-            selectsEnd
-            startDate={startDate}
-            endDate={endDate}
-            maxDate={new Date("2023-12-31")}
-            minDate={new Date("2010-01-01")}
-            showYearPicker
-            dateFormat="yyyy-mm-dd"
-            placeholderText="Select end year"
-          />
-        </div>
-        <div className="row d-flex>">
+    <div className="card mb-4">
+      <div className="card-body">
+        <h3 className="mb-3">Filter by Date Range</h3>
+        <div className="row d-flex">
           <div className="mr-3">
-            <label>Year:</label>
-            <Select
-              value={selectedYear || ""}
-              options={years}
-              year={year}
-              onChange={handleYearChange}
-              placeholder="Select a year"
-              className="react-select-container"
-              classNamePrefix="react-select"
+            <label>Start Date:</label>
+            <MemoisedDatePicker
+              value={startDate || ""}
+              selected={startDate}
+              onChange={handleStartDateChange}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+              maxDate={new Date("2023-12-31")}
+              minDate={new Date("2010-01-01")}
+              showYearPicker
+              dateFormat="yyyy-mm-dd"
+              placeholderText="Select start year"
+              className="form-control"
             />
           </div>
-          <div>
-            <label>Month:</label>
-            <Select
-              value={selectedMonth || ""}
-              options={months}
-              month={month}
-              onChange={handleMonthChange}
-              placeholder="Select a month"
-              className="react-select-container"
-              classNamePrefix="react-select"
+          <div className="mr-3">
+            <label>End Date: </label>
+            <MemoisedDatePicker
+              value={endDate || ""}
+              selected={endDate}
+              onChange={handleEndDateChange}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              maxDate={new Date("2023-12-31")}
+              minDate={new Date("2010-01-01")}
+              showYearPicker
+              dateFormat="yyyy-mm-dd"
+              placeholderText="Select end year"
+              className="form-control"
             />
+          </div>
+          <div className="row d-flex">
+            <div className="mr-3">
+              <label>Year:</label>
+              <Select
+                value={selectedYear || ""}
+                options={years}
+                year={year}
+                onChange={handleYearChange}
+                placeholder="Select a year"
+                className="react-select-container"
+                classNamePrefix="react-select"
+              />
+            </div>
+            <div>
+              <label>Month:</label>
+              <Select
+                value={selectedMonth || ""}
+                options={months}
+                month={month}
+                onChange={handleMonthChange}
+                placeholder="Select a month"
+                className="react-select-container"
+                classNamePrefix="react-select"
+              />
+            </div>
           </div>
         </div>
       </div>

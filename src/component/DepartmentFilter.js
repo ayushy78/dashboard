@@ -17,15 +17,17 @@ const DepartmentFilter = ({ onDepartmentChange }) => {
   };
 
   return (
-    <div className="mb-4">
-      <h3 className="mb-3">Department</h3>
-      <Select
-        options={departments}
-        onChange={handleDepartmentChange}
-        placeholder="Select a department"
-        className="react-select-container"
-        classNamePrefix="react-select"
-      />
+    <div className="card mb-4">
+      <div className="card-body">
+        <h3 className="mb-3">Department</h3>
+        <Select
+          options={departments}
+          onChange={handleDepartmentChange}
+          placeholder="Select a department"
+          className="react-select-container"
+          classNamePrefix="react-select"
+        />
+      </div>
     </div>
   );
 };

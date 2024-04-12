@@ -83,15 +83,23 @@ const Dashboard = () => {
 
           <div className="row">
             <div className="col-md-4">
-              <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
-              <DateFilter
-                onDateChange={handleDateChange}
-                dateRange={dateRange}
-              />
-              <button onClick={clearFilters}>Clear Filters</button>
+              <div className="card">
+                <div className="card-body">
+                  <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
+                  <DateFilter
+                    onDateChange={handleDateChange}
+                    dateRange={dateRange}
+                  />
+                  <button className="btn btn-primary" onClick={clearFilters}>Clear Filters</button>
+                </div>
+              </div>
             </div>
             <div className="col-md-8">
-              <Charts data={filteredData} />
+              <div className="card">
+                <div className="card-body">
+                  <Charts data={filteredData} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
