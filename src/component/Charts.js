@@ -1,6 +1,7 @@
 import React from "react";
 import { Line, Bar, Pie } from "react-chartjs-2";
 import TotalCounts from "./TotalCounts";
+import "./Charts.css";
 import {
   Chart,
   CategoryScale,
@@ -9,6 +10,7 @@ import {
   LineElement,
   BarElement,
   ArcElement,
+  scales,
 } from "chart.js";
 
 Chart.register(
@@ -97,12 +99,13 @@ const Charts = ({ data }) => {
     ],
   };
 
+
   return (
     <div>
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
         <div className="col-md-6 mb-4">
-          <TotalCounts data={data} />
+          <TotalCounts data={data}  />
         </div>
         <div className="col-md-6 mb-4">
           <div className="card">
@@ -112,6 +115,8 @@ const Charts = ({ data }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="row">
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
@@ -128,6 +133,8 @@ const Charts = ({ data }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="row">
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="card-body">
