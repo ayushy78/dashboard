@@ -1,0 +1,25 @@
+.chart-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chart-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chart-card .card-title {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .chart-card .chart-container {
+    flex-grow: 1;
+    position: relative;
+  }
+  
+  .chart-card canvas {
+    max-height: 100%;
+  }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Line, Bar, Pie } from "react-chartjs-2";
 import TotalCounts from "./TotalCounts";
 import "./Charts.css";
@@ -23,6 +23,21 @@ Chart.register(
 );
 
 const Charts = ({ data }) => {
+  const chartRefs = useRef([]);
+
+  useEffect(() => {
+    const maxHeight = Math.max(
+      ...chartRefs.current.map(
+        (ref) => ref?.chartInstance?.canvas?.offsetHeight || 0
+      )
+    );
+    chartRefs.current.forEach((ref) => {
+      if (ref?.chartInstance?.canvas) {
+        ref.chartInstance.canvas.parentNode.style.height = `${maxHeight}px`;
+      }
+    });
+  }, [data]);
+
   const patientsData = {
     labels: data.map((item) => item.date),
     datasets: [
@@ -59,6 +74,16 @@ const Charts = ({ data }) => {
         ],
       },
     ],
+  };
+
+  const barChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
   };
 
   const admissionsData = {
@@ -99,55 +124,68 @@ const Charts = ({ data }) => {
     ],
   };
 
-
   return (
     <div>
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
         <div className="col-md-6 mb-4">
-          <TotalCounts data={data}  />
+          <TotalCounts data={data} />
         </div>
         <div className="col-md-6 mb-4">
-          <div className="card">
+          <div className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Number of Patients</h3>
-              <Line data={patientsData} />
+              <Line
+                data={patientsData}
+                ref={(ref) => (chartRefs.current[0] = ref)}
+              />
             </div>
           </div>
         </div>
-      </div>
-      <div className="row">
         <div className="col-md-6 mb-4">
-          <div className="card">
+          <div className="chart-card card h-100">
             <div className="card-body">
               <h3 className="card-title">Total Counts</h3>
-              <Bar data={totalCountsData} />
+              <div className="chart-container">
+                <Bar
+                  data={totalCountsData}
+                  options={barChartOptions}
+                  ref={(ref) => (chartRefs.current[1] = ref)}
+                />
+              </div>
             </div>
           </div>
         </div>
         <div className="col-md-6 mb-4">
-          <div className="card">
+          <div className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Admissions vs Visits</h3>
-              <Pie data={admissionsData} />
+              <Pie
+                data={admissionsData}
+                ref={(ref) => (chartRefs.current[2] = ref)}
+              />
             </div>
           </div>
         </div>
-      </div>
-      <div className="row">
         <div className="col-md-6 mb-4">
-          <div className="card">
+          <div className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Number of Prescriptions</h3>
-              <Line data={prescriptionsData} />
+              <Line
+                data={prescriptionsData}
+                ref={(ref) => (chartRefs.current[3] = ref)}
+              />
             </div>
           </div>
         </div>
         <div className="col-md-6 mb-4">
-          <div className="card">
+          <div className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Number of Lab Results</h3>
-              <Line data={labResultsData} />
+              <Line
+                data={labResultsData}
+                ref={(ref) => (chartRefs.current[4] = ref)}
+              />
             </div>
           </div>
         </div>
