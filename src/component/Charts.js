@@ -127,7 +127,6 @@ const Charts = ({ data }) => {
     <div>
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
-      
         <div className="col-md-6 mb-4">
           <div className="card h-100">
             <div className="card-body">
@@ -153,17 +152,7 @@ const Charts = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="col-md-6 mb-4">
-          <div className="card h-100">
-            <div className="card-body">
-              <h3 className="card-title">Admissions vs Visits</h3>
-              <Pie
-                data={admissionsData}
-                ref={(ref) => (chartRefs.current[2] = ref)}
-              />
-            </div>
-          </div>
-        </div>
+
         <div className="col-md-6 mb-4">
           <div className="card h-100">
             <div className="card-body">
@@ -184,6 +173,17 @@ const Charts = ({ data }) => {
                 ref={(ref) => (chartRefs.current[4] = ref)}
               />
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-12 mb-4">
+        <div className="card h-100">
+          <div className="card-body">
+            <h3 className="card-title">Admissions vs Visits</h3>
+            <Pie
+              data={admissionsData}
+              ref={(ref) => (chartRefs.current[2] = ref)}
+            />
           </div>
         </div>
       </div>

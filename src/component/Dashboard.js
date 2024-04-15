@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-// import DepartmentFilter from "./DepartmentFilter";
-// import DateFilter from "./DateFilter";
-// import Charts from "./Charts";
+import DepartmentFilter from "./DepartmentFilter";
+import DateFilter from "./DateFilter";
+import Charts from "./Charts";
 import logo from "../logo.png";
 import sampleData from "./Data";
 import "./Dashboard.css";
 import TotalCounts from "./TotalCounts";
 import Card from "./Cards";
-
-
-
 
 const Dashboard = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
@@ -93,11 +90,11 @@ const Dashboard = () => {
               Retrospective Dashboard
             </h1>
           </div>
-          <div>          
+          <div>
             <Card title="Total Patients" value="1000" />
           </div>
 
-          {/* <div className="row">
+          <div className="row">
             <div className="col-md-4">
               <div className="card mb-4">
                 <div className="card-body">
@@ -120,15 +117,14 @@ const Dashboard = () => {
             <div className="col-md-8">
               <div className="card">
                 <div className="card-body">
+                  <TotalCounts data={filteredData} />
                   <Charts data={filteredData} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div> */}
-    </div>
-    </div>
+      </div>
     </div>
   );
 };

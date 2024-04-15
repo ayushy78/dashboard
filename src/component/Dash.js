@@ -5,6 +5,7 @@ import Charts from "./Charts";
 import logo from "../logo.png";
 import sampleData from "./Data";
 import axios from "axios";
+import TotalCounts from "./TotalCounts";
 
 import "./Dashboard.css";
 const Dash = () => {
@@ -41,9 +42,12 @@ const Dash = () => {
 
   const handleDepartmentChange = (department) => {
     setSelectedDepartment(department);
-    const filtered = sampleData.filter(
-      (item) => item.department === selectedDepartment
-    );
+    let filtered = sampleData;
+    if (selectedDepartment === "") {
+      filtered = sampleData.filter(
+        (item) => item.department === selectedDepartment
+      );
+    }
     setFilteredData(filtered);
   };
 
@@ -92,6 +96,7 @@ const Dash = () => {
               Retrospective Dashboard
             </h1>
           </div>
+          <TotalCounts data={filteredData} />
           <div className="row">
             <div className="col-md-4">
               <DepartmentFilter onDepartmentChange={handleDepartmentChange} />

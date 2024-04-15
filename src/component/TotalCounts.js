@@ -1,10 +1,7 @@
 import React from "react";
+import Cards from "./Cards";
 
 const TotalCounts = ({ data }) => {
-  const styles = {
-    backgroundColor: "#f8f9fa",
-  };
-
   const totalPatients = data.reduce((sum, item) => sum + item.numPatients, 0);
   const totalAdmissions = data.reduce(
     (sum, item) => sum + item.numAdmissions,
@@ -21,50 +18,12 @@ const TotalCounts = ({ data }) => {
   );
 
   return (
-    <div className="row">
-      <div className="col-md-12">
-        <h4 className="card-title">Total Counts</h4>
-      </div>
-      <div className="col-md-6">
-        <div className="card mb-3" style={styles}>
-          <div className="card-body">
-            <h5 className="card-title">Patients</h5>
-            <p className="card-text">{totalPatients}</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-6">
-        <div className="card mb-3" style={styles}>
-          <div className="card-body">
-            <h5 className="card-title">Admissions</h5>
-            <p className="card-text">{totalAdmissions}</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-6">
-        <div className="card mb-3" style={styles}>
-          <div className="card-body">
-            <h5 className="card-title">Visits</h5>
-            <p className="card-text">{totalVisits}</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-6">
-        <div className="card mb-3" style={styles}>
-          <div className="card-body">
-            <h5 className="card-title">Outpatients</h5>
-            <p className="card-text">{totalOutPatients}</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-12">
-        <div className="card mb-6" style={styles}>
-          <div className="card-body">
-            <h5 className="card-title">Discharge Summaries</h5>
-            <p className="card-text">{totalDischargeSummaries}</p>
-          </div>
-        </div>
-      </div>
+    <div className="cardds">
+      <Cards title="Patients" value={totalPatients} />
+      <Cards title="Admissions" value={totalAdmissions} />
+      <Cards title="Visits" value={totalVisits} />
+      <Cards title="Outpatients" value={totalOutPatients} />
+      <Cards title="Discharge Summaries" value={totalDischargeSummaries} />
     </div>
   );
 };
