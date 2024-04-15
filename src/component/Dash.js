@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import "./Dashboard.css";
 import DepartmentFilter from "./DepartmentFilter";
 import DateFilter from "./DateFilter";
 import Charts from "./Charts";
@@ -6,8 +8,7 @@ import logo from "../logo.png";
 import sampleData from "./Data";
 import axios from "axios";
 import TotalCounts from "./TotalCounts";
-
-import "./Dashboard.css";
+import Popup from "./Popup";
 const Dash = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
@@ -16,7 +17,8 @@ const Dash = () => {
     year: null,
     month: null,
   });
-
+  const [showPopup, setShowPopup] = useState(false);
+  const [data, setData] = useState('Initial data');
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     axios
@@ -104,11 +106,21 @@ const Dash = () => {
                 onDateChange={handleDateChange}
                 dateRange={dateRange}
               />
+              <div>
+      <button onClick={() => setShowPopup(true)}>Open Popup</button>
+      {showPopup && (
+        <Popup
+          onClose={() => setShowPopup(false)}
+          data={data}
+          onDataChange={(newData) => setData(newData)}
+        />
+      )}
+    </div>
               <button onClick={clearFilters}>Clear Filters</button>
             </div>
-            <div className="col-md-8">
+            {/* <div className="col-md-8">
               <Charts data={filteredData} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

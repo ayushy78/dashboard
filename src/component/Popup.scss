@@ -1,0 +1,255 @@
+//Global Styles and Mixins
+
+@mixin font-stack{
+  font-family: 'Raleway', sans-serif;
+}
+
+$background-opacity: .5;
+
+.hidden{
+  opacity:0;
+}
+
+@mixin absolute-position-center(){
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin box-shadow() {
+  -webkit-box-shadow: 0px 0px 59px 5px rgba(0,0,0,0.48);
+-moz-box-shadow: 0px 0px 59px 5px rgba(0,0,0,0.48);
+box-shadow: 0px 0px 59px 5px rgba(0,0,0,0.48);
+}
+
+@mixin keyframes( $animationName )
+{
+        @-webkit-keyframes animationName {
+            @content;
+        }
+        @-moz-keyframes animationName {
+            @content;
+        }
+        @-o-keyframes animationName {
+            @content;
+        }
+        @keyframes animationName {
+            @content;
+        }
+    }
+    *{
+      box-sizing:border-box;
+      @include font-stack;
+      font-weight:500;
+      color:#222;
+    }
+
+    body{
+      width:100%;
+      height:100vh;
+      background: #16a085; /* Old browsers */
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1abc9c+0,16a085+100 */
+      background: #1abc9c; /* Old browsers */
+      background: -moz-linear-gradient(top,  #1abc9c 0%, #16a085 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #1abc9c 0%,#16a085 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #1abc9c 0%,#16a085 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1abc9c', endColorstr='#16a085',GradientType=0 ); /* IE6-9 */
+      overflow:hidden;
+    }
+
+    .opener{
+      @include absolute-position-center;
+      width:250px;
+      height:80px;
+      color:#16a085;
+      background-color:white;
+      border:none;
+      font-size:2em;
+      font-weight:700;
+      z-index:20;
+    }
+
+    #above{
+      z-index:20;
+    }
+
+    #below{
+      z-index:0;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
+    /* optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+        background: #FF0000;
+    }
+
+
+    .opener:hover{
+      cursor:pointer;
+    }
+
+    #pop-up{
+      @include absolute-position-center();
+      @include box-shadow();
+      width:90%;
+      opacity:0;
+      max-height:450px;
+      max-width:1000px;
+      height:90%;
+      background-color:white;
+      z-index:10;
+      overflow:hidden;
+      .border-overlay{
+        @include absolute-position-center;
+        width:100%;
+        height:100%;
+        .white{
+          width:100%;
+          height:100%;
+          border:20px solid white;
+        }
+      }
+      .photo{
+        display:inline-block;
+        width:50%;
+        height:100%;
+        overflow: auto;
+        object-position: center;
+        img{
+          max-height:100%;
+        }
+      }
+      .text{
+        display:inline-block;
+    width:50%;
+    height:90%;
+    margin:2.5% 0;
+    padding:0 40px;
+    h1{
+      font-weight:900;
+      font-size:4vw;
+      margin:0;
+    }
+    p{
+    width: 90%;
+    font-weight: 500;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    }
+    button{
+      background-color:#16a085;
+      border:none;
+      font-size:1.7em;
+      margin:20px 0;
+      padding:10px 40px;
+      color:white;
+      cursor:pointer;
+    }
+    .close{
+      position:absolute;
+      top:-10px;
+      right:40px;
+      width:10px;
+      font-weight:700;
+      font-size:2em;
+      color:white;
+      cursor:pointer;
+    }
+  }
+  hr{
+    width: 40%;
+    height: 10px;
+    margin:10px auto 30px 0;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: grey;
+  }
+}
+
+#innerPopUp{
+  height:100%;
+  overflow: auto;
+  opacity:0;
+}
+
+.fade-in{
+  animation: fadeIn 1.3s ease forwards 1s;
+}
+
+.fade-out{
+  animation: fadeOut 1.3s ease forwards;
+}
+
+.animate-in{
+  animation: popIn 1.3s cubic-bezier(.87,-.41,.19,1.22) forwards;
+}
+
+.animate-out{
+  animation: popOut 1.3s cubic-bezier(.87,-.41,.19,1.22) forwards;
+}
+
+@keyframes fadeIn{
+  from{
+    transform:translateY(-20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0px);
+    opacity:1;
+  }
+}
+@keyframes popIn{
+  0%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+}
+
+@keyframes popOut{
+  0%{
+    z-index:100;
+    opacity:1;
+    transform:scale(1,1);
+  }
+  60%{
+    z-index:0;
+    opacity:.1;
+    transform:scale(.001,.001);
+  }
+  100%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+}
+
+@include keyframes( pop-in ){
+  0%{
+    opacity:0;
+    transform:scale(0,0);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1,1);
+  }
+}
