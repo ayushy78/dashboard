@@ -6,7 +6,7 @@
 
 .cardd {
   background: #fff;
-  width: 24em;
+  /* width: 24em; */
   border-radius: 0.6em;
   margin: 1em;
   overflow: hidden;
@@ -28,7 +28,7 @@
   object-fit: cover;
 }
 
-.cardd h2 {
+.cardd h2 h3 label {
   color: #222;
   margin-top: -0.2em;
   line-height: 1.4;
@@ -42,7 +42,7 @@
   color: #777;
 }
 
-.cardd h5 {
+.cardd h4 {
   color: #bbb;
   font-weight: 700;
   font-size: 0.7em;
@@ -59,4 +59,20 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+}
+
+.cardd button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.8em 1.2em;
+  border-radius: 0.4em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+
+.cardd button:hover {
+  background-color: #0056b3;
 }

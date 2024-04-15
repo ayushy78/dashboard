@@ -9,6 +9,7 @@ import sampleData from "./Data";
 import axios from "axios";
 import TotalCounts from "./TotalCounts";
 import Popup from "./Popup";
+import Card from "./Cards";
 const Dash = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
@@ -18,7 +19,7 @@ const Dash = () => {
     month: null,
   });
   const [showPopup, setShowPopup] = useState(false);
-  const [data, setData] = useState('Initial data');
+  const [data, setData] = useState("Initial data");
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     axios
@@ -100,27 +101,29 @@ const Dash = () => {
           </div>
           <TotalCounts data={filteredData} />
           <div className="row">
-            <div className="col-md-4">
-              <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
-              <DateFilter
-                onDateChange={handleDateChange}
-                dateRange={dateRange}
+            {showPopup && (
+              <Popup
+                onClose={() => setShowPopup(false)}
+                data={data}
+                onDataChange={(newData) => setData(newData)}
               />
-              <div>
-      <button onClick={() => setShowPopup(true)}>Open Popup</button>
-      {showPopup && (
-        <Popup
-          onClose={() => setShowPopup(false)}
-          data={data}
-          onDataChange={(newData) => setData(newData)}
-        />
-      )}
-    </div>
-              <button onClick={clearFilters}>Clear Filters</button>
+            )}
+            <div className="col-md-4">
+              <Card>
+                <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
+                <DateFilter
+                  onDateChange={handleDateChange}
+                  dateRange={dateRange}
+                />
+                <div className="button-row">
+                  <button onClick={() => setShowPopup(true)}>Open Popup</button>
+                  <button onClick={clearFilters}>Clear Filters</button>
+                </div>
+              </Card>
             </div>
-            {/* <div className="col-md-8">
+            <div className="col-md-8">
               <Charts data={filteredData} />
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

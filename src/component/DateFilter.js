@@ -2,6 +2,7 @@ import React, { useState, useEffect, memo } from "react";
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 import "react-datepicker/dist/react-datepicker.css";
+import Card from "./Cards";
 
 const DateFilter = ({ onDateChange, dateRange }) => {
   const [startDate, setStartDate] = useState(dateRange.startDate || null);
@@ -54,7 +55,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
   };
 
   return (
-    <div className="card mb-4">
+    <Card className="card mb-4">
       <div className="card-body">
         <h3 className="mb-3"> Data Duration</h3>
         <div className="row">
@@ -120,7 +121,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

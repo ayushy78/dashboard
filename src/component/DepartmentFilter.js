@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import Card from "./Cards";
 
 const DepartmentFilter = ({ onDepartmentChange }) => {
   const departments = [
@@ -17,18 +18,20 @@ const DepartmentFilter = ({ onDepartmentChange }) => {
   };
 
   return (
-    <div className="card mb-4">
-      <div className="card-body">
-        <h3 className="mb-3">Department</h3>
-        <Select
-          options={departments}
-          onChange={handleDepartmentChange}
-          placeholder="Select a department"
-          className="react-select-container"
-          classNamePrefix="react-select"
-        />
+    <Card>
+      <div className="card mb-4">
+        <div className="card-body">
+          <h3 className="mb-3">Department</h3>
+          <Select
+            options={departments}
+            onChange={handleDepartmentChange}
+            placeholder="Select a department"
+            className="react-select-container"
+            classNamePrefix="react-select"
+          />
+        </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Line, Bar, Pie } from "react-chartjs-2";
+import Card from "./Cards";
 
 import "./Charts.css";
 import {
@@ -124,11 +125,11 @@ const Charts = ({ data }) => {
   };
 
   return (
-    <div>
+    <Card className="cardds">
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
         <div className="col-md-6 mb-4">
-          <div className="card h-100">
+          <Card className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Number of Patients</h3>
               <Line
@@ -136,10 +137,10 @@ const Charts = ({ data }) => {
                 ref={(ref) => (chartRefs.current[0] = ref)}
               />
             </div>
-          </div>
+          </Card>
         </div>
         <div className="col-md-6 mb-4">
-          <div className="chart-card card h-100">
+          <Card className="chart-card card h-100">
             <div className="card-body">
               <h3 className="card-title">Total Counts</h3>
               <div className="chart-container">
@@ -150,11 +151,11 @@ const Charts = ({ data }) => {
                 />
               </div>
             </div>
-          </div>
+          </Card>
         </div>
 
         <div className="col-md-6 mb-4">
-          <div className="card h-100">
+          <Card className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Number of Prescriptions</h3>
               <Line
@@ -162,10 +163,10 @@ const Charts = ({ data }) => {
                 ref={(ref) => (chartRefs.current[3] = ref)}
               />
             </div>
-          </div>
+          </Card>
         </div>
         <div className="col-md-6 mb-4">
-          <div className="card h-100">
+          <Card className="card h-100">
             <div className="card-body">
               <h3 className="card-title">Number of Lab Results</h3>
               <Line
@@ -173,11 +174,11 @@ const Charts = ({ data }) => {
                 ref={(ref) => (chartRefs.current[4] = ref)}
               />
             </div>
-          </div>
+          </Card>
         </div>
       </div>
       <div className="col-md-12 mb-4">
-        <div className="card h-100">
+        <Card className="card h-100">
           <div className="card-body">
             <h3 className="card-title">Admissions vs Visits</h3>
             <Pie
@@ -185,9 +186,9 @@ const Charts = ({ data }) => {
               ref={(ref) => (chartRefs.current[2] = ref)}
             />
           </div>
-        </div>
+        </Card>
       </div>
-    </div>
+    </Card>
   );
 };
 

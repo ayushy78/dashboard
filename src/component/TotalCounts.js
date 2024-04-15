@@ -19,11 +19,26 @@ const TotalCounts = ({ data }) => {
 
   return (
     <div className="cardds">
-      <Cards title="Patients" value={totalPatients} />
-      <Cards title="Admissions" value={totalAdmissions} />
-      <Cards title="Visits" value={totalVisits} />
-      <Cards title="Outpatients" value={totalOutPatients} />
-      <Cards title="Discharge Summaries" value={totalDischargeSummaries} />
+      <Cards>
+        <h2>Patients</h2>
+        <h4>{totalPatients}</h4>
+      </Cards>
+      <Cards>
+        <h2>Admissions</h2>
+        <h4>{totalAdmissions}</h4>
+      </Cards>
+      <Cards>
+        <h2>Visits</h2>
+        <h4>{totalVisits}</h4>
+      </Cards>
+      <Cards>
+        <h2>Outpatients</h2>
+        <h4>{totalOutPatients}</h4>
+      </Cards>
+      <Cards>
+        <h2>Discharge Summaries</h2>
+        <h4>{totalDischargeSummaries}</h4>
+      </Cards>
     </div>
   );
 };
