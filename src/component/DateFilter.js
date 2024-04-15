@@ -56,7 +56,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
   return (
     <div className="card mb-4">
       <div className="card-body">
-        <h3 className="mb-3">Filter by Date Range</h3>
+        <h3 className="mb-3"> Data Duration</h3>
         <div className="row">
           <div className="col-md-6">
             <label className="mb-2">Start Date</label>

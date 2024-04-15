@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Line, Bar, Pie } from "react-chartjs-2";
-import TotalCounts from "./TotalCounts";
+
 import "./Charts.css";
 import {
   Chart,
@@ -127,13 +127,7 @@ const Charts = ({ data }) => {
     <div>
       <h2 className="mb-4">Data Charts</h2>
       <div className="row">
-        <div className="col-md-6 mb-4">
-          <div className="card h-100">
-            <div className="card-body">
-              <TotalCounts data={data} />
-            </div>
-          </div>
-        </div>
+      
         <div className="col-md-6 mb-4">
           <div className="card h-100">
             <div className="card-body">
