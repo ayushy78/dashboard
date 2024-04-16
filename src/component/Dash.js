@@ -10,7 +10,7 @@ import axios from "axios";
 import TotalCounts from "./TotalCounts";
 import Popup from "./Popup";
 import Card from "./Cards";
-const Dash = () => {
+const Dash = (modetoggle) => {
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
     startDate: null,
@@ -98,13 +98,22 @@ const Dash = () => {
             <h1 className="display-4 my-5 text-center mb-5">
               Retrospective Dashboard
             </h1>
+            <label
+              htmlFor="checkbox"
+              className="checkbox-label"
+              onClick={modetoggle}
+            >
+              <i className="fas fa-moon"></i>
+              <i className="fas fa-sun"></i>
+              <span className="ball"></span>
+            </label>
           </div>
           <TotalCounts data={filteredData} />
           <div className="row">
             {showPopup && (
               <Popup
                 onClose={() => setShowPopup(false)}
-                handleDateChange = {handleDateChange}
+                handleDateChange={handleDateChange}
                 date={dateRange}
               />
             )}
