@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className={`App ${darkMode ? "dark-mode" : "light-mode"}`}>
-      <Dash modetoggle={toggleDarkMode} />
+      <Dash togglehandler={toggleDarkMode} />
     </div>
   );
 }

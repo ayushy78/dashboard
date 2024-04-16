@@ -11,7 +11,8 @@ import TotalCounts from "./TotalCounts";
 import Popup from "./Popup";
 import Card from "./Cards";
 
-const Dash = (modetoggle) => {
+const Dash = ({ togglehandler }) => {
+  console.log(togglehandler);
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [dateRange, setDateRange] = useState({
     startDate: null,
@@ -91,7 +92,7 @@ const Dash = (modetoggle) => {
           <label
             htmlFor="checkbox"
             className="checkbox-label"
-            onClick={modetoggle}
+            onClick={togglehandler}
           >
             <i className="fas fa-moon"></i>
             <i className="fas fa-sun"></i>
