@@ -104,8 +104,8 @@ const Dash = () => {
             {showPopup && (
               <Popup
                 onClose={() => setShowPopup(false)}
-                data={data}
-                onDataChange={(newData) => setData(newData)}
+                handleDateChange = {handleDateChange}
+                date={dateRange}
               />
             )}
             <div className="col-md-4">
