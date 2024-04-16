@@ -111,10 +111,10 @@ const Dash = () => {
             <div className="col-md-4">
               <Card>
                 <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
-                <DateFilter
+                {/* <DateFilter
                   onDateChange={handleDateChange}
                   dateRange={dateRange}
-                />
+                /> */}
                 <div className="button-row">
                   <button onClick={() => setShowPopup(true)}>Open Popup</button>
                   <button onClick={clearFilters}>Clear Filters</button>

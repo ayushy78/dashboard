@@ -1,9 +1,12 @@
 /* Header */
 .header {
-  background-color: #961d1d;
+  background-color: hsl(184, 52%, 43%);
   color: #fff;
   padding: 20px 0;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo-container {

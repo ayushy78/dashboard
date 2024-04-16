@@ -75,7 +75,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="header bg-primary text-white p-3">
+      <div className="header bg-primary text-white p-3" style={{ position: "sticky", top: 0 }}>
         <div className="logo-container d-flex align-items-center">
           <img src={logo} className="logo mr-3" alt="logo" />
           <div className="app-name">

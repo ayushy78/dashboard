@@ -1,27 +1,21 @@
 import React from "react";
 import "./Popup.css";
 import Card from "./Cards";
-
-function Popup({ onClose, data, onDataChange }) {
-  const handleDataChange = (event) => {
-    onDataChange(event.target.value);
-  };
-
-  const handleDateChange = (newDate) => {
-    onDataChange(newDate);
-  };
+import dateRange from "./DateFilter";
+import DateFilter from "./DateFilter";
+import { useState } from "react";
+import handleDateChange from "./DateFilter";
+function Popup({ onClose, data }) {
 
 return (
     <div className="popup-overlay" style={{ zIndex: 20 }}>
         <Card className="popup-content">
             <h2>Change Duration</h2>
-            <input type="text" value={data} onChange={handleDataChange} />
             <div className="button-row">
-                <button onClick={() => handleDateChange("Today")}>Today</button>
-                <button onClick={() => handleDateChange("Tomorrow")}>Tomorrow</button>
-                <button onClick={() => handleDateChange("Next Week")}>
-                    Next Week
-                </button>
+            <DateFilter
+                  onDateChange={handleDateChange}
+                  dateRange={dateRange}
+                />
             </div>
             <div className="button-row">
                 <button onClick={onClose}>Close</button>

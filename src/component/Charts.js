@@ -44,8 +44,12 @@ const Charts = ({ data }) => {
       {
         label: "Number of Patients",
         data: data.map((item) => item.numPatients),
-        backgroundColor: "rgba(75,192,192,0.4)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75, 192, 192, 0.4)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        borderWidth: 2,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        
       },
     ],
   };
@@ -82,6 +86,45 @@ const Charts = ({ data }) => {
     scales: {
       y: {
         beginAtZero: true,
+        ticks: {
+          font: {
+            size: 14,
+            family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+            family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+          },
+        },
+      },
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: "Data Charts",
+        font: {
+          size: 24,
+          family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+          weight: "bold",
+        },
+      },
+      tooltip: {
+        bodyFont: {
+          size: 14,
+          family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+        },
+      },
+      legend: {
+        labels: {
+          font: {
+            size: 14,
+            family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+          },
+        },
       },
     },
   };
@@ -106,8 +149,11 @@ const Charts = ({ data }) => {
       {
         label: "Number of Prescriptions",
         data: data.map((item) => item.numPrescriptions),
-        backgroundColor: "rgba(255,206,86,0.4)",
-        borderColor: "rgba(255,206,86,1)",
+        backgroundColor: "rgba(255, 206, 86, 0.4)",
+        borderColor: "rgba(255, 206, 86, 1)",
+        borderWidth: 2,
+        pointRadius: 4,
+        pointHoverRadius: 6,
       },
     ],
   };
