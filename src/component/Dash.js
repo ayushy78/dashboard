@@ -23,6 +23,7 @@ const Dash = ({ togglehandler }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [data, setData] = useState("Initial data");
   const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:5000/posts")
@@ -42,13 +43,21 @@ const Dash = ({ togglehandler }) => {
       year: null,
       month: null,
     });
-    setFilteredData(filteredData);
+
+    axios
+      .get("http://127.0.0.1:5000/posts")
+      .then((res) => {
+        setFilteredData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleDepartmentChange = (department) => {
     setSelectedDepartment(department);
     let filtered = sampleData;
-    if (selectedDepartment === "") {
+    if (selectedDepartment !== "") {
       filtered = sampleData.filter(
         (item) => item.department === selectedDepartment
       );
