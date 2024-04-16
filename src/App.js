@@ -11,10 +11,6 @@ function App() {
 
   return (
     <div className={`App ${darkMode ? "dark-mode" : "light-mode"}`}>
-      <div>
-        <input type="checkbox" className="checkbox" id="checkbox" />
-        
-      </div>
       <Dash modetoggle={toggleDarkMode} />
     </div>
   );
