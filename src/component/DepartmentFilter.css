@@ -1,0 +1,27 @@
+.Department{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+.card mb-4{
+  background:var(--background-color);
+    color: var(--text-color);
+}
+
+
+.cardd-body{
+    
+    padding: 1.2em;
+    background:var(--background-color);
+    color: var(--text-color);
+}
+
+.react-select-container {
+    width: 100%;
+    max-width: 300px;
+    margin-right: 20px; /* Add some spacing between logo and heading */
+    z-index: 60000 !important ;/* Use a reasonable z-index value */
+    position: relative !important; /* Use position: relative instead of absolute */
+  }

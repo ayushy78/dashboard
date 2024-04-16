@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import Select from "react-select";
 import "react-datepicker/dist/react-datepicker.css";
 import Card from "./Cards";
-
+import "./DateFilter.css";
 const DateFilter = ({ onDateChange, dateRange }) => {
   const [startDate, setStartDate] = useState(dateRange.startDate || null);
   const [endDate, setEndDate] = useState(dateRange.endDate || null);
@@ -60,7 +60,7 @@ const DateFilter = ({ onDateChange, dateRange }) => {
         <h3 className="mb-3"> Data Duration</h3>
         <div className="row">
           <div className="col-md-6">
-            <label className="mb-2">Start Date</label>
+            <label className="mb-2">Data Start Date</label>
             <MemoisedDatePicker
               value={startDate || ""}
               selected={startDate}
@@ -77,19 +77,19 @@ const DateFilter = ({ onDateChange, dateRange }) => {
             />
           </div>
           <div className="col-md-6">
-            <label className="mb-2">End Date</label>
+            <label className="mb-2">Data End Date</label>
             <MemoisedDatePicker
-              value={endDate || ""}
-              selected={endDate}
-              onChange={handleEndDateChange}
-              selectsEnd
+              value={startDate || ""}
+              selected={startDate}
+              onChange={handleStartDateChange}
+              selectsStart
               startDate={startDate}
               endDate={endDate}
               maxDate={new Date("2023-12-31")}
               minDate={new Date("2010-01-01")}
               showYearPicker
               dateFormat="yyyy-mm-dd"
-              placeholderText="Select end year"
+              placeholderText="Select start year"
               className="form-control"
             />
           </div>

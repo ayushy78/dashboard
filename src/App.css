@@ -1,4 +1,44 @@
+.card-body {
+  background:var(--background-color);
+    color: var(--text-color);
+}
 
+.card{
+  --bs-card-border-color: rgb(221 12 12 / 0%) !important;
+  --bs-card-bg: var(--background-color) !important;
+}
+
+.cardds h4{
+    font-size: 1.5rem !important;
+
+}
+.ca
+
+.card h-100 cardd{
+  background:var(--background-color);
+    color: var(--text-color);
+
+}
+
+.row{
+  background:var(--background-color) !important;
+    color: var(--text-color) !important
+
+}
+
+.col{
+  background:var(--background-color);
+    color: var(--text-color);
+}
+
+.mb-3{
+  color: var(--text-color);
+}
+.col-md-6 mb-4{
+  background:var(--background-color);
+    color: var(--text-color);
+
+}
 
 .checkbox {
   opacity: 0;
@@ -10,8 +50,9 @@
   width: 50px;
   height: 26px;
   border-radius: 50px;
-  position: relative;
-  padding: 5px;
+  position: absolute;
+  right: 0;
+  padding: 10px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;

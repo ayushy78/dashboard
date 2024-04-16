@@ -64,20 +64,13 @@ const Charts = ({ data }) => {
           data.reduce((sum, item) => sum + item.numOutpatients, 0),
           data.reduce((sum, item) => sum + item.numDischargeSummaries, 0),
         ],
-        backgroundColor: [
-          "rgba(255,99,132,0.6)",
-          "rgba(54,162,235,0.6)",
-          "rgba(153,102,255,0.6)",
-          "rgba(255,206,86,0.6)",
-        ],
-        borderColor: [
-          "rgba(255,99,132,1)",
-          "rgba(54,162,235,1)",
-          "rgba(153,102,255,1)",
-          "rgba(255,206,86,1)",
-        ],
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
       },
-    ],
+    ]
   };
 
   const ChartOptions = {
@@ -127,6 +120,11 @@ const Charts = ({ data }) => {
         },
       },
     },
+    backgroundColor: 'rgba(255,99,132,0.2)',
+    borderColor: 'rgba(255,99,132,1)',
+    borderWidth: 1,
+    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+    hoverBorderColor: 'rgba(255,99,132,1)',
   };
 
   const admissionsData = {
@@ -192,9 +190,9 @@ const Charts = ({ data }) => {
               <div className="chart-container">
                 <Bar
                   data={totalCountsData}
-                  options={ChartOptions}
+                  options={{ ChartOptions, height: 700, width:500, }}
                   ref={(ref) => (chartRefs.current[1] = ref)}
-                />
+                ></Bar>
               </div>
             </div>
           </Card>

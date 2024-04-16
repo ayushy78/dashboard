@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import "./Dashboard.css";
 import DepartmentFilter from "./DepartmentFilter";
-import DateFilter from "./DateFilter";
 import Charts from "./Charts";
 import logo from "../logo.png";
 import sampleData from "./Data";
@@ -96,7 +95,13 @@ const Dash = ({ togglehandler }) => {
   return (
     <div>
       <div className="header">
-        <div>
+        
+        <div className="logo-container">
+          <img src={logo} className="logo" alt="logo" />
+          <div className="app-name">
+            <h1>Sanjay Gandhi Post Graduate Institute of Medical Sciences</h1>
+          </div>
+          <div>
           <input type="checkbox" className="checkbox" id="checkbox" />
           <label
             htmlFor="checkbox"
@@ -108,13 +113,10 @@ const Dash = ({ togglehandler }) => {
             <span className="ball"></span>
           </label>
         </div>
-        <div className="logo-container">
-          <img src={logo} className="logo" alt="logo" />
-          <div className="app-name">
-            <h1>Sanjay Gandhi Post Graduate Institute of Medical Sciences</h1>
-          </div>
         </div>
+        
       </div>
+      
       <div className="dashboard-container row align-items-center">
         <div className="container">
           <div className="row">
@@ -122,6 +124,7 @@ const Dash = ({ togglehandler }) => {
               Retrospective Dashboard
             </h1>
           </div>
+          
           <TotalCounts data={filteredData} />
           <div className="row">
             {showPopup && (
@@ -134,16 +137,15 @@ const Dash = ({ togglehandler }) => {
             <div className="col-md-4">
               <Card>
                 <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
-                {/* <DateFilter
-                  onDateChange={handleDateChange}
-                  dateRange={dateRange}
-                /> */}
-                <div className="button-row">
-                  <button onClick={() => setShowPopup(true)}>Open Popup</button>
-                  <button onClick={clearFilters}>Clear Filters</button>
-                </div>
-              </Card>
-            </div>
+               
+ 
+
+  <div className="button-row">
+    <button onClick={() => setShowPopup(true)}>Change Duration</button>
+    <button onClick={clearFilters}>Clear Filters</button>
+  </div>
+  </Card>
+  </div>
             <div className="col-md-8">
               <Charts data={filteredData} />
             </div>

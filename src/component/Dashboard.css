@@ -11,9 +11,14 @@
 
 .logo-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align items at the start */
   justify-content: start;
   padding-left: 20px;
+  height: 100%; 
+}
+
+.header {
+  position: relative; /* Add this to your header CSS */
 }
 
 .logo {
