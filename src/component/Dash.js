@@ -20,7 +20,7 @@ const Dash = ({ togglehandler }) => {
     month: null,
   });
   const [showPopup, setShowPopup] = useState(false);
-  const [data, setData] = useState("Initial data");
+
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -138,14 +138,17 @@ const Dash = ({ togglehandler }) => {
               <Card>
                 <DepartmentFilter onDepartmentChange={handleDepartmentChange} />
                
- 
+                <div>
+  <p>Start Date: {dateRange.startDate ? dateRange.startDate.toDateString() : 'Not set'}</p>
+  <p>End Date: {dateRange.endDate ? dateRange.endDate.toDateString() : 'Not set'}</p>
+</div>
 
-  <div className="button-row">
-    <button onClick={() => setShowPopup(true)}>Change Duration</button>
-    <button onClick={clearFilters}>Clear Filters</button>
-  </div>
-  </Card>
-  </div>
+                <div className="button-row">
+                  <button onClick={() => setShowPopup(true)}>Change Duration</button>
+                  <button onClick={clearFilters}>Clear Filters</button>
+                </div>
+              </Card>
+            </div>
             <div className="col-md-8">
               <Charts data={filteredData} />
             </div>
